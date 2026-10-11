@@ -1,0 +1,8 @@
+main .section.isi-container { background: var(--paper); border-top: 3px solid var(--silt); max-width: none; padding-inline: var(--gutter); }
+main .section.isi-container .isi-wrapper { max-width: 1160px; margin: 0 auto; }
+.isi h2 { font-family: var(--font-sans); font-size: 1.05rem; font-weight: 600; }
+.isi .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; margin-top: 20px; }
+.isi h3 { font-family: var(--font-sans); font-size: 0.95rem; font-weight: 600; margin-bottom: 6px; }
+.isi p { max-width: none; font-size: 0.95rem; margin: 0; }
+.isi .block + .block { margin-top: 18px; }
+@media (max-width: 820px) { .isi .cols { grid-template-columns: 1fr; } }
