@@ -1,0 +1,11 @@
+.boxed-warning details { border: 2px solid var(--silt); background: var(--paper); }
+.boxed-warning summary { list-style: none; cursor: pointer; padding: 14px 18px; display: flex; gap: 14px; align-items: baseline; flex-wrap: wrap; }
+.boxed-warning summary::-webkit-details-marker { display: none; }
+.boxed-warning summary h2 { font-family: var(--font-sans); font-size: 0.95rem; font-weight: 600; color: var(--silt); }
+.boxed-warning summary > span:not(.toggle) { color: var(--ink-soft); font-size: 0.95rem; }
+.boxed-warning summary .toggle { margin-left: auto; font-size: 0.9rem; color: var(--tide); text-decoration: underline; }
+.boxed-warning summary .toggle::after { content: "Read the boxed warning"; }
+.boxed-warning details[open] summary .toggle::after { content: "Collapse"; }
+.boxed-warning .body { padding: 0 18px 18px; display: grid; gap: 12px; }
+.boxed-warning .body p { max-width: none; font-size: 0.97rem; margin: 0; }
+.boxed-warning .body strong { font-weight: 600; }
