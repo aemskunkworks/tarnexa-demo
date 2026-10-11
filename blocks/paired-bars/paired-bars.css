@@ -1,0 +1,11 @@
+.paired-bars figure { margin: 0; background: var(--paper); border: 1px solid var(--rule); padding: 22px 24px 18px; }
+.paired-bars .rows { display: grid; gap: 14px; }
+.paired-bars .bar { display: grid; grid-template-columns: 170px 1fr 56px; align-items: center; gap: 12px; font-size: 0.95rem; }
+.paired-bars .track { height: 18px; background: var(--ground); position: relative; }
+.paired-bars .fill { position: absolute; inset: 0 auto 0 0; background: var(--tide); }
+.paired-bars .bar.placebo .fill { background: var(--rule); }
+.paired-bars .val { font-family: var(--font-mono); text-align: right; }
+.paired-bars .lab { color: var(--ink-soft); }
+.paired-bars .note { font-family: var(--font-mono); font-size: 0.82rem; color: var(--ink-soft); margin-top: 10px; }
+.paired-bars figcaption { font-size: 0.92rem; color: var(--ink-soft); margin-top: 14px; }
+@media (max-width: 480px) { .paired-bars .bar { grid-template-columns: 1fr 56px; } .paired-bars .lab { grid-column: 1 / -1; } }
