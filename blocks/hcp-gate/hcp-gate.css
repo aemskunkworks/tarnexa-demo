@@ -1,0 +1,12 @@
+body.hcp-gated { overflow: hidden; }
+.hcp-gate { position: fixed; inset: 0; z-index: 50; background: rgba(29, 53, 65, 0.72); display: grid; place-items: center; padding: var(--gutter); }
+.hcp-gate .panel { background: var(--paper); max-width: 520px; width: 100%; padding: 32px 32px 28px; border-top: 4px solid var(--marsh); display: grid; gap: 14px; max-height: 100%; overflow: auto; }
+.hcp-gate h1 { font-size: 1.7rem; }
+.hcp-gate .panel > p { color: var(--ink-soft); font-size: 0.98rem; max-width: none; }
+.hcp-gate form { display: grid; gap: 6px; margin-top: 6px; }
+.hcp-gate label { font-weight: 600; font-size: 0.9rem; margin-top: 10px; }
+.hcp-gate input, .hcp-gate select { font: inherit; padding: 10px 12px; border: 1px solid var(--rule); background: var(--ground); color: var(--ink); }
+.hcp-gate small { color: var(--ink-soft); font-size: 0.82rem; }
+.hcp-gate .err { color: var(--silt); font-size: 0.9rem; font-weight: 500; }
+.hcp-gate .button-container { margin-top: 16px; }
+.hcp-gate .fine { font-size: 0.8rem; color: var(--ink-soft); margin-top: 8px; max-width: none; }
