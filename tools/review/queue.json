@@ -1,0 +1,79 @@
+[
+  {
+    "fragment": "acr20-week24-tnf-ir",
+    "model": "product-claim",
+    "fieldTier": "regulated",
+    "tier": "regulated",
+    "author": "A1B2C3D4E5F6@AdobeID",
+    "authorScore": 0.96,
+    "source": "express-addon",
+    "sourceScore": 0.93,
+    "changes": [
+      {
+        "path": "content.claimText",
+        "tier": "regulated",
+        "before": "In ESTUARY-1, 58% of patients receiving Tarnexa 15 mg once daily plus background csDMARD achieved ACR20 at week 24 vs 29% with placebo plus csDMARD (p<0.001). ACR50 was achieved by 34% vs 13%.",
+        "after": "In ESTUARY-1, 61% of patients receiving Tarnexa 15 mg once daily plus background csDMARD achieved ACR20 at week 24 vs 29% with placebo plus csDMARD (p<0.001). ACR50 was achieved by 34% vs 13%."
+      },
+      {
+        "path": "content.dataPoints[0].value",
+        "tier": "regulated",
+        "before": "58%",
+        "after": "61%"
+      }
+    ],
+    "reasons": []
+  },
+  {
+    "fragment": "acr20-week24-tnf-ir",
+    "model": "product-claim",
+    "fieldTier": "auto",
+    "tier": "human",
+    "author": "ZZZ999@AdobeID",
+    "authorScore": null,
+    "source": "manual",
+    "sourceScore": 0.31,
+    "changes": [
+      {
+        "path": "content.headline",
+        "tier": "auto",
+        "before": "After a TNF inhibitor, a different mechanism",
+        "after": "When a TNF inhibitor is not enough"
+      },
+      {
+        "path": "author",
+        "tier": "auto",
+        "pii": true
+      },
+      {
+        "path": "source.pipeline",
+        "tier": "auto",
+        "before": "express-addon",
+        "after": "manual"
+      }
+    ],
+    "reasons": [
+      "author ZZZ999@AdobeID has no history (cold start) → raised to human",
+      "source score 0.31 < 0.7 → raised to human"
+    ]
+  },
+  {
+    "fragment": "access-navigator-prior-auth",
+    "model": "product-claim",
+    "fieldTier": "auto",
+    "tier": "auto",
+    "author": "A1B2C3D4E5F6@AdobeID",
+    "authorScore": 0.96,
+    "source": "express-addon",
+    "sourceScore": 0.93,
+    "changes": [
+      {
+        "path": "content.ctaLabel",
+        "tier": "auto",
+        "before": "Enroll a patient",
+        "after": "Enroll a patient today"
+      }
+    ],
+    "reasons": []
+  }
+]
