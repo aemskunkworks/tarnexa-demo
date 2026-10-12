@@ -17,7 +17,22 @@
   header { background:var(--paper); border-bottom:1px solid var(--rule); padding:14px 20px; display:flex; align-items:baseline; gap:16px }
   header h1 { font-family:var(--font-serif); font-size:1.3rem; font-weight:600; margin:0 } header span { color:var(--ink-soft); font-size:.9rem }
   main { display:grid; grid-template-columns:320px 1fr; min-height:calc(100vh - 56px) }
-  @media (max-width:820px){ main { grid-template-columns:1fr } aside { border-right:0; border-bottom:1px solid var(--rule) } }
+  @media (max-width:760px){
+    main { grid-template-columns:1fr; min-height:0 }
+    aside { border-right:0; border-bottom:1px solid var(--rule); padding:12px }
+    section { padding:12px 14px; gap:12px }
+    .card { padding:12px 14px }
+    .meta { grid-template-columns:1fr 1fr; gap:8px }
+    .meta .mono, .badge { font-size:.8rem; word-break:break-all }
+    table thead { display:none }
+    table tr { display:grid; grid-template-columns:1fr; border-bottom:1px solid var(--rule); padding:8px 0 }
+    table td { border:0; padding:2px 0 }
+    td.diff::before { font-size:.72rem; color:var(--ink-soft); font-family:var(--font-sans); display:block }
+    td.diff:nth-child(3)::before { content:"before" } td.diff:nth-child(4)::before { content:"after" }
+    .actions { flex-direction:column; align-items:stretch } .actions button { width:100% }
+  }
+  header { flex-wrap:wrap; gap:8px 16px }
+  header .pop { margin-left:auto; font-size:.85rem; color:var(--tide); white-space:nowrap }
   aside { border-right:1px solid var(--rule); background:var(--paper); padding:16px }
   aside h2, section h2 { font-size:.8rem; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); font-weight:600; margin:0 0 10px }
   .queue { list-style:none; margin:0; padding:0; display:grid; gap:8px }
@@ -44,13 +59,14 @@
 </style>
 </head>
 <body>
-<header><h1>Fragment review</h1><span>Saltmarsh Therapeutics · product-claim · MLR</span></header>
+<header><h1>Fragment review</h1><span>Saltmarsh Therapeutics · product-claim · MLR</span><a class="pop" id="pop" href="#" target="_blank" rel="noopener" hidden>Open full page ↗</a></header>
 <main>
   <aside><h2>Waiting for review</h2><ul class="queue" id="queue"></ul></aside>
   <section id="detail"><p class="empty">Select a fragment.</p></section>
 </main>
 <script>
 (async () => {
+  const pop = document.getElementById('pop'); if (window.self !== window.top) { pop.href = window.location.href; pop.hidden = false; }
   const queueEl = document.getElementById('queue'); const detail = document.getElementById('detail');
   let items = [];
   try { items = await fetch('./queue.json').then(r => r.json()); } catch { items = []; }
