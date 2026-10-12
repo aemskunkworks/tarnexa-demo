@@ -13,7 +13,17 @@ export default async function decorate(block) {
   const [brand, sections, tools] = nav.children;
   if (brand) { brand.classList.add('nav-brand'); const a = brand.querySelector('a'); if (a) a.classList.add('product'); }
   if (sections) { sections.classList.add('nav-sections'); sections.setAttribute('aria-label', 'Primary'); }
-  if (tools) tools.classList.add('nav-tools');
+  if (tools) {
+    tools.classList.add('nav-tools');
+    tools.innerHTML = '<p>Signed in as <strong class="hcp-name">—</strong> <span class="hcp-specialty"></span> <a href="/sign-out">Sign out</a></p>';
+    const fill = (hcp) => {
+      if (!hcp) return;
+      tools.querySelector('.hcp-name').textContent = hcp.name || '—';
+      tools.querySelector('.hcp-specialty').textContent = hcp.specialtyLabel ? `· ${hcp.specialtyLabel}` : '';
+    };
+    fill(window.tarnexaHcp);
+    document.addEventListener('hcp:authenticated', (e) => fill(e.detail));
+  }
   // mark current page
   nav.querySelectorAll('.nav-sections a').forEach((a) => {
     if (new URL(a.href).pathname === window.location.pathname) a.setAttribute('aria-current', 'page');

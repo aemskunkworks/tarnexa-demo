@@ -18,11 +18,10 @@ function writeCookie(obj) { document.cookie = `${COOKIE}=${encodeURIComponent(JS
 function clearCookie() { document.cookie = `${COOKIE}=; path=/; max-age=0`; }
 
 function applyIdentity(hcp) {
-  window.tarnexaHcp = { authenticated: true, specialty: hcp.specialty, hcpId: hcp.hcpId };
+  window.tarnexaHcp = { authenticated: true, specialty: hcp.specialty, hcpId: hcp.hcpId, name: hcp.name, specialtyLabel: hcp.specialtyLabel };
   window.adobeDataLayer = window.adobeDataLayer || [];
-  window.adobeDataLayer.push({ event: 'hcp.authenticated', hcp: window.tarnexaHcp });
-  document.querySelectorAll('[data-hcp-name]').forEach((el) => { el.textContent = hcp.name; });
-  document.querySelectorAll('[data-hcp-specialty]').forEach((el) => { el.textContent = hcp.specialtyLabel; });
+  window.adobeDataLayer.push({ event: 'hcp.authenticated', hcp: { authenticated: true, specialty: hcp.specialty, hcpId: hcp.hcpId } });
+  document.dispatchEvent(new CustomEvent('hcp:authenticated', { detail: window.tarnexaHcp }));
 }
 
 export default function decorate(block) {
